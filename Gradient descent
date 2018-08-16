@@ -1,0 +1,22 @@
+#The gradient descent algorithm is applied to find a local minimum of the function f(x)=x4−3x3+2, with derivative f'(x)=4x3−9x2.
+#Here is an implementation in the Python programming language.
+
+
+cur_x = 6
+gamma = 0.01
+precision = 0.00001
+previous_step_size = 1
+max_iters = 10000
+iters = 0
+
+df = lambda x: 4 * x**3 - 9 * x **2
+
+while (previous_step_size > precision) & (iters < max_iters):
+	prev_x = cur_x
+	cur_x -= gamma * df(prev_x)
+	previous_step_size = abs(cur_x - prev_x)
+	iters += 1
+
+print("the local minimum occurs at", cur_x)
+
+
